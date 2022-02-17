@@ -12,8 +12,12 @@ public class SavingsAccount extends BankAccount{
    // {
        // GregorianCalendar today = new GregorianCalendar();
         //int yearsSpanned = today.get(GregorianCalendar.YEAR) - dateCreated.get(GregorianCalendar.YEAR);
-
+        //return this.balance*this.rate*yearsSpanned;
   //  }
 
     //getBalance (overrides inherited method)
+    //@Override
+    //public double getBalance(){
+        //return this.balance + getAccruedInterest();
+   // }
 }

@@ -12,30 +12,35 @@ public class BankAccount {
         {
                 this.accountNumber = aN;
                 this.balance = b;
-                this.annualInterestRate = aIR;
+                this.annualInterestRate = aIR/100;
                 dateCreated = new GregorianCalendar();
         }
 
         //Mutator/setter methods (used to modify private data fields
-        /* 
+        /*
            deposit
            withdraw
          */
         // deposit  would be:
         //balance = balance + moneyGoingIn;
         public double deposit(double amount){
-                if(amount < 0){
-                         this.balance += amount;
+                if(amount > 0){
+                         return this.balance += amount;
                 }
-                return this.balance;
+                else{
+                        return this.balance;
+                }
         }
         //withdraw would be:
         // balance = balance - moneyGoingOut;
         public double withdraw (double amount) {
                 if(amount <= balance) {
-                        this.balance -= amount;
+                        return this.balance -= amount;
                 }
-                return this.balance;
+                else{
+                        return this.balance;
+                }
+
         }
 
 
