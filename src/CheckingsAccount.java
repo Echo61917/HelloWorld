@@ -10,8 +10,21 @@ public class CheckingsAccount extends BankAccount{
     //that can be withdrawn past your current balance. For example, if you currently have $2000, and the overdraft
     //limit is $500, then you could withdraw $2500 from your account.
 
-    //private final double overdraftLimit= 500.0;
-    //@Override
-    //public withdraw
+    private final double overdraftLimit= 500.0;
+    @Override
+    public double withdraw (double amount)
+    {
+        if(amount < balance)
+        {
+            return this.balance -= amount;
+        }
+        else if(amount > balance && amount <= balance + overdraftLimit)
+        {
+            return this.balance -= amount;
+        }
+        else{
+            return this.balance;
+        }
+    }
 
 }

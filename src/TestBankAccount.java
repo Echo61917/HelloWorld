@@ -9,6 +9,8 @@ public class TestBankAccount {
 
         bankaccount.deposit(20000.00);
         System.out.println(bankaccount.getBalance());
+        bankaccount.withdraw(2500.00);
+        System.out.println(bankaccount.getBalance());
     }
 
 }
