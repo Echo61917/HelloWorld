@@ -1,5 +1,6 @@
+package Week1;
 
-public class CheckingsAccount extends BankAccount{
+public class CheckingsAccount extends BankAccount {
     public CheckingsAccount(long aN, double b, double aIR)
     {
         super(aN, b, aIR);

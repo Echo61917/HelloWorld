@@ -1,6 +1,8 @@
+package Week1;
+
 import java.util.GregorianCalendar;
 
-public class SavingsAccount extends BankAccount{
+public class SavingsAccount extends BankAccount {
 
     //Constructor
     public SavingsAccount (long aN, double b, double aIR)

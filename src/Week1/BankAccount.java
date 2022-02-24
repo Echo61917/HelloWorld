@@ -1,3 +1,5 @@
+package Week1;
+
 import java.util.GregorianCalendar;
 
 public class BankAccount {
@@ -7,7 +9,7 @@ public class BankAccount {
         protected double annualInterestRate;
         protected GregorianCalendar dateCreated;
 
-        //Constructor (executed when new BankAccount is created)
+        //Constructor (executed when new Week1.BankAccount is created)
         public BankAccount(long aN, double b, double aIR)
         {
                 this.accountNumber = aN;
@@ -62,7 +64,7 @@ public class BankAccount {
         //public String getDate() {return date.getTime();}
         //public String getDate() {return date.getTime().toString();}
 
-        //toString method (returned when BankAccount object is referenced)
+        //toString method (returned when Week1.BankAccount object is referenced)
         //
         //toString
         //Notes that should be printed:

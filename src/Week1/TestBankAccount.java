@@ -1,3 +1,5 @@
+package Week1;
+
 public class TestBankAccount {
     public static void main(String[] args){
         BankAccount bankaccount = new BankAccount (321123456, 5000.00, 5.5);
