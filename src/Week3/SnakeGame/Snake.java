@@ -1,4 +1,4 @@
-package Week3;
+package Week3.SnakeGame;
 
 import java.util.ArrayList;
 

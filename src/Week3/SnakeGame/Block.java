@@ -1,4 +1,4 @@
-package Week3;
+package Week3.SnakeGame;
 
 //All this class does is getting the X, Y values and is setting them
 public class Block
