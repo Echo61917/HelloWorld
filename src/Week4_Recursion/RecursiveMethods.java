@@ -1,13 +1,30 @@
 package Week4_Recursion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import static java.util.Arrays.copyOfRange;
+
 public class RecursiveMethods {
     public static void main(String[] args)
     {
-        int answer = power(2,3);
-        System.out.println(answer);
+       // int answer = power(2,3);
+        //System.out.println(answer);
 
-        String string = "answer";
-        System.out.println(reverse(string));
+        //String string = "answer";
+        //System.out.println(reverse(string));
+
+        //int x = 13;
+        //System.out.println(isPrime(x));
+        //String name = "international";
+
+
+        boolean check;
+        System.out.println(find("international", "nation"));
+
+        int[] array = {3, 8, 52, 54, -4};
+
+        System.out.println(largest(array));
     }
 
     //Write a recursive method that returns a^b
@@ -47,4 +64,68 @@ public class RecursiveMethods {
         }
     }
 
+    //isPrime - returns true if n is a prime number
+    //13 can it be divided by 12? No
+    //13 can it be divided by 11? No
+    //13 can it be divided by 10? No
+    //13 can it be divided by 9? No
+    //13 can it be divided by 8? No
+    //13 can it be divided by 7? No
+
+    public static boolean isPrime(int n)
+    {
+        return isPrime(n, n/2);
+    }
+    private static boolean isPrime(int n, int i)
+    {
+        //base case - if i gets to 1 then n is prime
+        if(i == 1)
+        {
+            return true;
+        }
+        else if(n % i == 0)
+        {
+            return false;
+        }
+        else
+            return  isPrime(n, i -1);
+
+    }
+
+    public static boolean find(String text, String str)
+    {
+        if(text.substring(0, str.length()).equals(str))
+        {
+            return true;
+        }
+        //Checks if all letters and forms have been exhausted
+        else if(text.length() == str.length())
+        {
+            return false;
+        }
+        else
+        {
+            return find(text.substring(1), str);
+        }
+    }
+
+    public static int largest (int[] array)
+    {
+        //check to see if there are only two elements in the array
+        if (array.length == 2)
+        {
+            if (array[0] > array[1])
+            return array[0];
+            else
+                return array[1];
+        }
+        else
+        {
+            if(array[0] > largest(Arrays.copyOfRange(array, 1, array.length)))
+                return array[0];
+            else
+                return largest(Arrays.copyOfRange(array, 1, array.length));
+        }
+
+    }
 }
