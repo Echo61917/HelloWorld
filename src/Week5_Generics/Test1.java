@@ -1,5 +1,7 @@
 package Week5_Generics;
 
+import java.util.ArrayList;
+
 public class Test1 {
     public static void main(String[] args)
     {
@@ -19,12 +21,21 @@ public class Test1 {
 
 
         Person[] personArray = {p1, p2, p3, p4, p5};
-
         Person[][] biggerPersonArray = {{p1, p2, p3, p4, p5}, {p6, p7, p8, p9, p10}};
 
-        //System.out.println(p1.compareTo(p3));
-        //System.out.println(max(personArray));
+        ArrayList personArrayList = new ArrayList();
+        personArrayList.add(p9);
+        personArrayList.add(p3);
+        personArrayList.add(p7);
+        personArrayList.add(p5);
+        personArrayList.add(p1);
+        personArrayList.add(p10);
+
+        sort(personArrayList);
+        System.out.println(personArrayList);
+        System.out.println(max(personArray));
         System.out.println(max(biggerPersonArray));
+        System.out.println("The person you're looking for is located at index " + binarySearch(personArray, p3) + " of the Person Array");
 
         //Car Objects and Array
         Car c1 = new Car("Toyota", "Corolla", 1990);
@@ -63,6 +74,48 @@ public class Test1 {
             }
         }
         return initialValue;
+    }
+
+    public static <E extends Comparable<E>> void sort( ArrayList<E> list )
+    {
+        E minimum;
+        int minimumIndex;
+
+        for (int i = 0; i < list.size() - 1; i++) {
+            // Find the minimum in the ArrayList
+            minimum = list.get(i);
+            minimumIndex = i;
+
+            for (int j = i + 1; j < list.size(); j++) {
+                if (minimum.compareTo(list.get(j)) > 0) {
+                    minimum = list.get(j);
+                    minimumIndex = j;
+                }
+            }
+
+            // Swap list.get(i) with list.get(minimumIndex) if necessary;
+            if (minimumIndex != i) {
+                list.set(minimumIndex, list.get(i));
+                list.set(i, minimum);
+            }
+        }
+    }
+
+    public static <E extends Comparable<E>> int binarySearch(E[] list, E key) {
+        int low = 0;
+        int high = list.length - 1;
+
+        while (high >= low) {
+            int mid = (low + high / 2);
+            if (key.compareTo(list[mid]) < 0)
+                high = mid - 1;
+            else if (key.compareTo(list[mid]) == 0)
+                return mid;
+            else
+                low = mid + 1;
+        }
+
+        return -low - 1;
     }
 }
 

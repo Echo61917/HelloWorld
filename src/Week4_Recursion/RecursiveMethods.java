@@ -19,12 +19,16 @@ public class RecursiveMethods {
         //String name = "international";
 
 
-        boolean check;
-        System.out.println(find("international", "nation"));
+//        boolean check;
+//        System.out.println(find("international", "nation"));
+//
+//        int[] array = {3, 8, 52, 54, -4};
+//
+//        System.out.println(largest(array));
 
-        int[] array = {3, 8, 52, 54, -4};
+        int[] b = {8, 10, -34, 28, 7, -2};
 
-        System.out.println(largest(array));
+        System.out.println(sum(b));
     }
 
     //Write a recursive method that returns a^b
@@ -126,6 +130,18 @@ public class RecursiveMethods {
             else
                 return largest(Arrays.copyOfRange(array, 1, array.length));
         }
-
     }
+
+    public static int sum(int[] container)
+    {
+        //Check to see if the array is only two numbers?
+        if(container.length == 2)
+        {
+            return container[0] + container[1];
+        }
+        else
+            return container[0] + sum(copyOfRange(container,1, container.length ));
+    }
+
+
 }
