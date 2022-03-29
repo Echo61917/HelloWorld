@@ -6,14 +6,6 @@ import java.util.ArrayList;
 public class TestGenericClass {
     public static void main(String[] args)
     {
-        //OperateOnArray list = new OperateOnArray<Integer>(new Integer[10]);
-
-//        IntegerOperateOnArray listOne = new IntegerOperateOnArray(new int[10]);
-//
-//        listOne.addNumbers();
-//        System.out.println(listOne.isSorted());
-//        System.out.println(listOne.toString());
-
         OperateOnArray list = new OperateOnArray<Integer>(new ArrayList<>());
 
         list.push(10);
@@ -23,6 +15,9 @@ public class TestGenericClass {
         list.push(50);
 
         System.out.println(list.isSorted());
+        System.out.println(list.max());
+        System.out.println(list.linearSearch(100));
+        System.out.println(list.binarySearch(100));
 
 
 
