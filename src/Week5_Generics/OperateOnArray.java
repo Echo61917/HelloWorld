@@ -41,6 +41,19 @@ public class OperateOnArray <E extends Comparable> {
         return -1;
     }
 
+//    public int linearSearch(E key)
+//    {
+//        for(int i = 0; i < list.size(); i++)
+//        {
+//            if(list.get(i).compareTo(key) < 0)
+//            {
+//                return i;
+//            }
+//
+//        }
+//        return -1;
+//    }
+
     public  <E extends Comparable<E>> Integer binarySearch( E key)
     {
         if(!isSorted())
