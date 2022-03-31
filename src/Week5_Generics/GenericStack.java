@@ -20,9 +20,9 @@ public class GenericStack<E> implements Iterable<E>{
             return size;
         }
 
-        public E get(E obj)
+        public E get(int index)
         {
-            return arr[obj];
+            return arr[index];
         }
 
         //return true if stack is empty, false otherwise

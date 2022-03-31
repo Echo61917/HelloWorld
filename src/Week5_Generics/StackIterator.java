@@ -12,7 +12,7 @@ public class StackIterator<E> implements Iterator<E> {
     public StackIterator( GenericStack<E> stack )
     {
         this.stack = stack;
-        this.current = stack[index];
+        this.current = stack.get(index);
     }
 
     //returns true if current element is not null, false otherwise
