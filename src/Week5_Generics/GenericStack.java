@@ -27,7 +27,7 @@ public class GenericStack<E> implements Iterable<E>{
 
         //return true if stack is empty, false otherwise
         public boolean isEmpty(){
-            if(size == 0)
+            if(size == 0 && arr.length == 0)
             return true;
             else
                 return false;
