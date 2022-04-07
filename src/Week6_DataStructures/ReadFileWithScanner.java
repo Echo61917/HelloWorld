@@ -1,8 +1,11 @@
 package Week6_DataStructures;
 
+import Week5_Generics.Car;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 
@@ -25,7 +28,13 @@ public class ReadFileWithScanner
 
                 //System.out.println(scan.next());
             }
+
+
+            //Car x = new Car(s1, s2, y);
+
+            //Car newCar = new Car("lambo", "lamb", 2023);
             Collections.sort(container);
+
             for( String s : container)
             {
                 System.out.println(s);
@@ -36,6 +45,34 @@ public class ReadFileWithScanner
             //This prints a list or trace of all the errors leading to the source
             //e.printStackTracer
             System.out.println("File not found.");
+        }
+
+    }
+
+    static class MakeComparator implements Comparator<String>
+    {
+        @Override
+        public int compare(String s1, String s2)
+        {
+            return 0;
+        }
+    }
+
+    static class ModelComparator implements Comparator<String>
+    {
+        @Override
+        public int compare(String s1, String s2)
+        {
+            return s1.length();
+        }
+    }
+
+    static class YearComparator implements Comparator<Integer>
+    {
+        @Override
+        public int compare(Integer n1, Integer n2)
+        {
+            return 0;
         }
 
     }
