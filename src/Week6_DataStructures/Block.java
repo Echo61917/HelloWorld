@@ -4,24 +4,25 @@ import Week3Interfaces.Comparable;
 
 public class Block {
 
-        private int shareCount, sharePrice;
-        private int shareNet;
+        private int shareCount;
+        private double sharePrice;
+        private double shareNet;
 
-        public Block(int shareCount, int sharePrice)
+        public Block(int shareCount, double sharePrice)
         {
             this.shareCount = shareCount;
             this.sharePrice = sharePrice;
         }
 
         public int getShareCount(){return this.shareCount;}
-        public int getSharePrice(){return this.sharePrice;}
+        public double getSharePrice(){return this.sharePrice;}
 
-        public int calcNetShare()
+        public double calcNetShare()
         {
             return shareNet = this.shareCount * this.sharePrice;
         }
 
-        public int calcNetShare(Block block)
+        public double calcNetShare(Block block)
         {
         return shareNet = this.shareCount * this.sharePrice;
         }
@@ -29,7 +30,7 @@ public class Block {
         @Override
         public String toString()
         {
-            return "Share Count: " + shareCount + "/n" + "Price Per Share: " + sharePrice + "/n"
+            return "Share Count: " + shareCount + "\n" + "Price Per Share: " + sharePrice + "\n"
                     + "Net Price: " + calcNetShare();
         }
 }
