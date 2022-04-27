@@ -35,30 +35,25 @@ public class PriorityQueueExercise3 {
     System.out.println("To Do List: ");
     System.out.println(ToDoList.remove());
     while(ToDoList.size() > 0 || !programCondition.equalsIgnoreCase("quit"))
-    {
+        {
         programCondition = progamState.nextLine();
 
-        if(programCondition.equalsIgnoreCase("next"))
-        {
-            System.out.println(ToDoList.remove());
-        }
+         if(ToDoList.size() == 0 && programCondition.equalsIgnoreCase("next"))
+            {
+                System.out.println("All tasks have been printed.");
+                break;
+            }
+        else if(programCondition.equalsIgnoreCase("next"))
+            {
+                System.out.println(ToDoList.remove());
+            }
         else if(programCondition.equalsIgnoreCase("quit"))
-        {
-            System.out.println("Program terminated");
-            break;
-        }
-        else if(ToDoList.size() < 0 || programCondition.equalsIgnoreCase("next"))
-        {
-            System.out.println("All tasks have been printed.");
-            break;
-        }
-    }
-//        if(ToDoList.size() == 0)
-//        {
-//            System.out.println("All tasks have been printed.");
-//        }
+            {
+                System.out.println("Program terminated");
+                break;
+            }
 
-
+        }
 
     }
 }
