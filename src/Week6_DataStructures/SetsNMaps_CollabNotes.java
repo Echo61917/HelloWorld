@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class SetsNMaps_CollabNotes {
     public static void main(String[] args)
     {
-        String [] source = readFileIntoArray("Reading and Analytical Skills.txt");
+        String [] source = readFileIntoArray("C://Users//cramirez17//Documents//GitHub//HelloWorld//src//Week6_DataStructures//ReadingandAnalyticalSkills.txt");
         for(String s : source)
             System.out.println(s);
     }
@@ -18,6 +18,10 @@ public class SetsNMaps_CollabNotes {
         try {
             File f = new File(filename);
             Scanner scan = new Scanner(f);
+            if(scan.hasNextLine() == false)
+            {
+                System.out.println("File is empty");
+            }
             ArrayList<String> text = new ArrayList<>();
             //System.out.println(scan.next());
             while (scan.hasNext()) {
