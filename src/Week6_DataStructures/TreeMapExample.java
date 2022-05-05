@@ -18,5 +18,13 @@ public class TreeMapExample {
 
 
         System.out.println(treeMap);
+
+        Map<String, String> map = new TreeMap<>();
+
+        map.put("London", "England");
+        map.put("Los Angeles", "California");
+        map.put("San Diego", "California");
+
+        System.out.println(map);
     }
 }

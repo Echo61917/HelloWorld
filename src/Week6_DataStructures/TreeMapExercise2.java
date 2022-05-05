@@ -9,12 +9,13 @@ import java.util.TreeMap;
 public class TreeMapExercise2 {
     public static void main(String[] args)
     {
-        TreeMap source = readFileIntoArray("C://Users//Carlos//IdeaProjects//GitHub//src//Week6_DataStructures//ReadingandAnalyticalSkill.txt");
+        //TreeMap source = readFileIntoArray("C://Users//Carlos//IdeaProjects//GitHub//src//Week6_DataStructures//ReadingandAnalyticalSkill.txt");
 
-        System.out.println(source);
+        TreeMap source = readFileIntoArray("C://Users//cramirez17//Documents//GitHub//HelloWorld//src//Week6_DataStructures//SchoolFile.txt");
+            System.out.println(source);
 
-       // for(String s : source)
-         //   System.out.println(s);
+//       for(String s : source)
+//            System.out.println(s);
     }
     public static TreeMap readFileIntoArray (String filename)
     {
@@ -27,7 +28,11 @@ public class TreeMapExercise2 {
             
             Map<String, Integer> text = new TreeMap<>();
             while (scan.hasNext()) {
-                text.put(scan.next(), counter++);
+                text.put(scan.next(), counter);
+//                if(text.containsKey(scan.next()))
+//                {
+//                    counter++;
+//                }
             }
             return (TreeMap) text;
 
