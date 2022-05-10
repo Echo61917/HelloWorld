@@ -2,10 +2,7 @@ package Week6_DataStructures;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class CapitalsAssignment {
     public static void main(String[] args)
@@ -20,6 +17,15 @@ public class CapitalsAssignment {
         System.out.println(state);
 
         System.out.println(capNStates.get(state));
+        String capital = "Sacramento";
+//        int counter = 0;
+//        while(counter < 100) {
+//            int randIndex = (int) (capital.length() * Math.random());
+//            System.out.println(randIndex);
+//            counter++;
+//        }
+        String retrieval = "" + scramble(capital);
+        System.out.println(retrieval);
     }
     public static HashMap<String, String> readData(String filename){
         //exception handling
@@ -42,5 +48,32 @@ public class CapitalsAssignment {
         }
 
 
-//    public static String scramble(){};
+//    public static String scramble(String capital)
+//    {
+//     int randIndex = (int) (capital.length() * Math.random());
+//    }
+
+    public static String scramble(String capital)
+    {
+        char[] capitalArrayForm = new char[capital.length()];
+        for(int i = 0; i < capital.length(); i++)
+        {
+            capitalArrayForm[i] = capital.charAt(capital.length() - 1);
+
+        }
+
+        int counter = 0;
+        while(counter < capital.length())
+        {
+            Collections.shuffle(Collections.singletonList(capitalArrayForm));
+            counter++;
+        }
+        String scrambledCapital = "";
+
+        while(capitalArrayForm.length > 0)
+        {
+            scrambledCapital = scrambledCapital + capitalArrayForm[0];
+        }
+        return scrambledCapital;
+    }
 }
