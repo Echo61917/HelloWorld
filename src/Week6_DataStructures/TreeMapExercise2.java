@@ -2,46 +2,47 @@ package Week6_DataStructures;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class TreeMapExercise2 {
     public static void main(String[] args)
     {
-        //TreeMap source = readFileIntoArray("C://Users//Carlos//IdeaProjects//GitHub//src//Week6_DataStructures//ReadingandAnalyticalSkill.txt");
 
-        TreeMap source = readFileIntoArray("C://Users//cramirez17//Documents//GitHub//HelloWorld//src//Week6_DataStructures//SchoolFile.txt");
-            System.out.println(source);
+        Map<String, Integer> map = new TreeMap<>();
+        
+        String[] words = readFileIntoArray("C://Users//Carlos//IdeaProjects//GitHub//src//Week6_DataStructures//ReadingandAnalyticalSkill.txt");
+        for(int i = 0; i < words.length; i++)
+        {
+            String key = words[i].toLowerCase();
 
-//       for(String s : source)
-//            System.out.println(s);
+            if(key.length() > 0)
+                if(!map.containsKey(key)){
+                    map.put(key, 1);
+                }
+            else{
+                int value = map.get(key);
+                value++;
+                map.put(key, value);
+                }
+        }
+        map.forEach((k, v) -> System.out.println(k + "\t" + v));
     }
-    public static TreeMap readFileIntoArray (String filename)
+    public static String[] readFileIntoArray (String filename)
     {
-
-        try {
+        try{
             File f = new File(filename);
             Scanner scan = new Scanner(f);
-            
-            int counter = 0;
-            
-            Map<String, Integer> text = new TreeMap<>();
-            while (scan.hasNext()) {
-                text.put(scan.next(), counter);
-//                if(text.containsKey(scan.next()))
-//                {
-//                    counter++;
-//                }
-            }
-            return (TreeMap) text;
 
+            ArrayList<String> text = new ArrayList<>();
+            while(scan.hasNext()) {
+                text.add(scan.next());
+            }
+            return text.toArray(new String[text.size()]);
         }
-        catch (FileNotFoundException e)
+        catch(FileNotFoundException e)
         {
             System.out.println("Filename not found: " + filename);
             return null;
         }
-
     }
 }
