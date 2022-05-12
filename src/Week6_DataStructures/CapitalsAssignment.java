@@ -20,6 +20,7 @@ public class CapitalsAssignment {
         String state = null;
 
         int randomInt = (int) (Math.random() * capNStates.size());
+
             while (!gameState.equalsIgnoreCase("quit")) {
                 if(capNStates.isEmpty() == true)
                 {
