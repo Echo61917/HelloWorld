@@ -7,26 +7,56 @@ import java.util.*;
 public class CapitalsAssignment {
     public static void main(String[] args)
     {
-        HashMap<String, String> capNStates = readData("C://Users//cramirez17//Documents//GitHub//HelloWorld//src//Week6_DataStructures//States_Capitals.csv");
+        HashMap<String, String> capNStates = readData("C://Users//Carlos//IdeaProjects//GitHub//src//Week6_DataStructures//States_Capitals.csv");
         ArrayList<String> states = new ArrayList<>(capNStates.keySet());
-        //System.out.println(capNStates.get("california"));
+
+        int Score = 0;
+        int maxScore = 250;
+        Scanner wordChecker = new Scanner(System.in);
+        String response = "";
 
         //Make a random number between 0-50 to pick a random State(key) to choose.
         int randomInt = (int) (Math.random()*50);
         String state = states.remove(randomInt);
-        System.out.println(state);
+        String capital = capNStates.get(state);
 
-        System.out.println(capNStates.get(state));
-        String capital = "Sacramento";
+        while(!response.equalsIgnoreCase("quit") || capNStates.isEmpty() == true)
+        {
+            System.out.println("Guess the capital of the state printed. (Word is scrambled)");
+            System.out.println("Score: " + Score + "\n" + "State: " + state + "\n" + "Capital: " + scramble(capNStates.get(state)));
+            if(wordChecker.next().equalsIgnoreCase(capital))
+            {
+                Score += 5;
+
+            }
+            else
+            {
+                Score -= 2;
+                scramble(capNStates.get(state));
+            }
+        }
+
+
+        //System.out.println(state);
+
+        //System.out.println(capNStates.get(state));
+        //String capital = "Sacramento";
 //        int counter = 0;
 //        while(counter < 100) {
 //            int randIndex = (int) (capital.length() * Math.random());
 //            System.out.println(randIndex);
 //            counter++;
 //        }
-        String retrieval = "" + scramble(capital);
-        System.out.println(retrieval);
+        //String retrieval = scramble(capital);
+        //System.out.println(retrieval);
+
+        System.out.println("Score: " + "0" + "\n" + "State: " + state + "\n" + "Capital: " + scramble(capNStates.get(state)));
+
+
     }
+
+
+
     public static HashMap<String, String> readData(String filename){
         //exception handling
         try {
@@ -48,32 +78,20 @@ public class CapitalsAssignment {
         }
 
 
-//    public static String scramble(String capital)
-//    {
-//     int randIndex = (int) (capital.length() * Math.random());
-//    }
-
     public static String scramble(String capital)
     {
-        char[] capitalArrayForm = new char[capital.length()];
-        for(int i = 0; i < capital.length(); i++)
-        {
-            capitalArrayForm[i] = capital.charAt(capital.length() - 1);
+        String copyString = "";
+        int capLength = capital.length();
 
+        for(int i = 0; i < capLength; i++) {
+            //Create a random number (rand) between 0 and the length of the capital (non-inclusive)
+            int randIndex = (int) (Math.random() * capital.length());
+            //Add the character at index value "rand" to an empty String
+            copyString += capital.charAt(randIndex);
+            //Remove the character at index value "rand" from the capital with the substring method
+            capital = capital.substring(0, randIndex) + capital.substring(randIndex + 1);
+            //Repeat steps 1-3 until the length of the capital is 0
         }
-
-        int counter = 0;
-        while(counter < capital.length())
-        {
-            Collections.shuffle(Collections.singletonList(capitalArrayForm));
-            counter++;
-        }
-        String scrambledCapital = "";
-
-        while(capitalArrayForm.length > 0)
-        {
-            scrambledCapital = scrambledCapital + capitalArrayForm[0];
-        }
-        return scrambledCapital;
+        return copyString;
     }
 }
