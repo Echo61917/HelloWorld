@@ -7,53 +7,56 @@ import java.util.*;
 public class CapitalsAssignment {
     public static void main(String[] args)
     {
-        HashMap<String, String> capNStates = readData("C://Users//Carlos//IdeaProjects//GitHub//src//Week6_DataStructures//States_Capitals.csv");
+        HashMap<String, String> capNStates = readData("C://Users//cramirez17//Documents//GitHub//HelloWorld//src//Week6_DataStructures//States_Capitals.csv");
         ArrayList<String> states = new ArrayList<>(capNStates.keySet());
+        //System.out.println(capNStates);
 
-        int Score = 0;
+        int score = 0;
         int maxScore = 250;
         Scanner wordChecker = new Scanner(System.in);
-        String response = "";
+        String gameState = "";
+        boolean wordVerified = true;
+        String capital = null;
+        String state = null;
 
-        //Make a random number between 0-50 to pick a random State(key) to choose.
-        int randomInt = (int) (Math.random()*50);
-        String state = states.remove(randomInt);
-        String capital = capNStates.get(state);
+        int randomInt = (int) (Math.random() * capNStates.size());
+            while (!gameState.equalsIgnoreCase("quit")) {
+                if(capNStates.isEmpty() == true)
+                {
+                    System.out.println("You guessed all the capitals!");
+                    if(score == maxScore)
+                    {
+                        System.out.println("You also got all of them correct! Good job!");
+                    }
+                    else
+                    {
+                        System.out.println("Your final score was: " + score);
+                    }
+                    break;
+                }
+                if (wordVerified == true) {
+                    randomInt = (int) (Math.random() * capNStates.size());
+                    //Make a random number between 0-50 to pick a random State(key) to choose.
+                    state = states.get(randomInt);
+                    capital = capNStates.get(state);
+                }
 
-        while(!response.equalsIgnoreCase("quit") || capNStates.isEmpty() == true)
-        {
-            System.out.println("Guess the capital of the state printed. (Word is scrambled)");
-            System.out.println("Score: " + Score + "\n" + "State: " + state + "\n" + "Capital: " + scramble(capNStates.get(state)));
-            if(wordChecker.next().equalsIgnoreCase(capital))
-            {
-                Score += 5;
-
+                System.out.println("Guess the capital of the state printed. (Word is scrambled)");
+                System.out.println("Score: " + score + "\n" + "State: " + state + "\n" + "Capital: " + scramble(capNStates.get(state)));
+                gameState = String.valueOf(wordChecker.nextLine());
+                if (gameState.equalsIgnoreCase(capital)) {
+                    score += 5;
+                    states.remove(randomInt);
+                    capNStates.remove(state);
+                    wordVerified = true;
+                } else {
+                    wordVerified = false;
+                    score -= 2;
+                    scramble(capNStates.get(state));
+                }
             }
-            else
-            {
-                Score -= 2;
-                scramble(capNStates.get(state));
-            }
-        }
+}
 
-
-        //System.out.println(state);
-
-        //System.out.println(capNStates.get(state));
-        //String capital = "Sacramento";
-//        int counter = 0;
-//        while(counter < 100) {
-//            int randIndex = (int) (capital.length() * Math.random());
-//            System.out.println(randIndex);
-//            counter++;
-//        }
-        //String retrieval = scramble(capital);
-        //System.out.println(retrieval);
-
-        System.out.println("Score: " + "0" + "\n" + "State: " + state + "\n" + "Capital: " + scramble(capNStates.get(state)));
-
-
-    }
 
 
 
