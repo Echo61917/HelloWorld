@@ -9,7 +9,7 @@ public class BubbleSortExercise1{
         int[] arrayOfInts = {20, 1, 33, 100, 5, 234, 7};
         String[] arrayOfNames = { "Carlos", "Octavio", "David", "Abraham", "Jasmine", "Jordan", "Daniel"};
 
-        //System.out.println(Arrays.toString(genericBubbleSort(arrayOfNames)));
+        System.out.println(Arrays.toString(genericBubbleSort(arrayOfNames)));
         //System.out.println(Arrays.toString(bubbleSort(arrayOfInts)));
     }
 

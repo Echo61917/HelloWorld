@@ -1,5 +1,7 @@
 package Week5_Generics;
 
+import java.util.Comparator;
+
 public class Car implements Comparable<Car>
 {
     private String make, model;
@@ -22,6 +24,7 @@ public class Car implements Comparable<Car>
 
     @Override
     public String toString(){
-        return "Make: " + this.make + "\nModel: " + this.model + "\nYear: " + this.year;
+        return "Make: " + this.make + "\nModel: " + this.model + "\nYear: " + this.year + "\n";
     }
+
 }
