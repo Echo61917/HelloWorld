@@ -2,10 +2,7 @@ package HangmanCode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class WordBank {
 
@@ -37,6 +34,12 @@ public class WordBank {
 //                }
         }
         wordBank.forEach((k, v) -> System.out.println(k + "\t" + v));
+
+        //grab a random word
+        Random generator = new Random();
+        Object[] values = wordBank.keySet().toArray();
+        String randomValue = (String) values[generator.nextInt(values.length)];
+        System.out.println(randomValue);
 
        // String animal = wordBank.put("goat","mammal");
 
